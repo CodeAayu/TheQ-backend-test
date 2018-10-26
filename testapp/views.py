@@ -6,7 +6,7 @@ from django.http import HttpResponse , JsonResponse
 
 @csrf_exempt
 def savetheevent(request):
-    print (request.body)
+    #print (request.body)
     data = json.loads(request.body)
     event_name = data["name"]
     event_date = datetime.datetime.strptime(data["date"],"%d%m%Y").date()
@@ -23,5 +23,7 @@ def showeventdetails(request):
         #print (listing)
         return JsonResponse(listing, safe=False)
     return HttpResponse("Wrong request!")
+
+
 def deleteevent(request):
     return HttpResponse("Event successfully saved!")
